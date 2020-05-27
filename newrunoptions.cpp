@@ -49,12 +49,11 @@ void NewRunOptions::checkIfValid()
 {
     bool doubleOk = false;
     QString probText = ui->decayProbEdit->text();
-    probText.toDouble(&doubleOk);
+    double val = probText.toDouble(&doubleOk);
     QPushButton *okbutton = ui->buttonBox->button(QDialogButtonBox::Ok);
     assert(okbutton != nullptr);
 
-    // and set the form correctly.
-    okbutton->setEnabled(doubleOk);
+    okbutton->setEnabled(doubleOk && val >= 0.0 && val <= 1.0);
 }
 
 void NewRunOptions::on_decayProbEdit_textChanged(const QString &)
