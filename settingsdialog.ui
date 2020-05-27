@@ -60,10 +60,10 @@
    <item row="2" column="0">
     <widget class="QCheckBox" name="useSplineChartsCheckbox">
      <property name="toolTip">
-      <string>Enabling this uses a smoothed result curve rather than strictly plotting the data.</string>
+      <string>Enabling this option causes the chart to be drawn using a curved spline rather than straight line segments.  This is not a best fit curve - it just makes it a bit easier on the eyes.</string>
      </property>
      <property name="text">
-      <string>Smooth Result Curve</string>
+      <string>Use Splines (Curves) for Chart</string>
      </property>
     </widget>
    </item>
