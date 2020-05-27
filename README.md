@@ -23,14 +23,14 @@ just 1/6th values...
 ## On Experimental Error
 
  * p is handled entirely using double precision floating point numbers - error
-   in FP precision should be contained to be no more than 10^-15 or so.  
-   ("[floating point](https://en.wikipedia.org/wiki/Floating-point_arithmetic)" 
-   numbers are based on powers of 2 internally, rather than powers of 10
-   - there is a slight mismatch between the bases that means there's always a 
-   bit of representational error created -
+   in FP precision should be contained to be no more than 10<sup>-15</sup> or so.  
+   "[floating point](https://en.wikipedia.org/wiki/Floating-point_arithmetic)" 
+   numbers are based on powers of 2 internally, rather than powers of 10 - there
+   is a slight mismatch between the bases that means there's always a bit of
+   rounding and representational error created -
    [double precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
    uses a mantissa of 52 bits, which gives precision to approximately 15 decimal
-   places)
+   places.
 
  * As the quality of the dice affects the conventional experiment, the quality
    of the results are entirely dependent upon the quality of the random number 
@@ -43,7 +43,7 @@ just 1/6th values...
    [Random Number Generation is non-trivial for a computer](https://engineering.mit.edu/engage/ask-an-engineer/can-a-computer-generate-a-truly-random-number/) and can
    impact the results of an activity like this where randomness is assumed.
    In theory, a faulty random number generator could result in the p being
-   skewed more than the 10^-15 floating point error.
+   skewed more than the 10<sup>-15</sup> floating point error.
 
  * Splines in the chart will occasionally do odd things and vary the 
    interpolation in odd ways, paritucularly where the gradient of the curve 
