@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QtCharts>
+#include "settingsdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,9 +25,10 @@ public:
 protected:
     QtCharts::QChart *chart;
     QtCharts::QChartView *chartView;
-    QMdiSubWindow *chartWindow;
     QValueAxis *mXAxis;
     QValueAxis *mYAxis;
+    SettingsDialog *mSettings;
+
     void setupChartView();
 
 private:
@@ -36,5 +38,8 @@ private slots:
     void on_actionExit_triggered();
     void on_actionSettings_triggered();
     void on_actionAddRun_triggered();
+
+    void addRun();
+    void changeSettings();
 };
 #endif // MAINWINDOW_H

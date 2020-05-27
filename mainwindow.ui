@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Halflife Decay</string>
   </property>
-  <widget class="QMdiArea" name="mdiArea"/>
+  <widget class="QWidget" name="mainWidget"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
