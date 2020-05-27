@@ -63,6 +63,7 @@ void MainWindow::setupChartView()
     mXAxis->setRange(0.0, simulationIterations);
     mXAxis->setTickAnchor(0);
     mXAxis->setTickCount(11);
+    mXAxis->setTitleText(tr("Iterations"));
 
     if (!mYAxis) {
         mYAxis = new QtCharts::QValueAxis(this);
@@ -71,6 +72,7 @@ void MainWindow::setupChartView()
     mYAxis->setRange(0.0, simulationStartingPopulation);
     mYAxis->setTickCount(11);
     mYAxis->setTickAnchor(0);
+    mYAxis->setTitleText(tr("Population"));
 }
 
 void MainWindow::on_actionAbout_triggered()
