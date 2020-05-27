@@ -19,7 +19,6 @@ Computers can do this much faster and in a far more abritrary manner, so our
 default starting population is 1000, and we accept any valid value for p, not
 just 1/6th values...
 
-
 ## On Experimental Error
 
  * p is handled entirely using double precision floating point numbers - error
@@ -63,6 +62,20 @@ the associated web version was built.
 If you want to change it, I strongly advise you read the limitations on the
 WebAssembler implementation of Qt first, and make your changes using the 
 desktop target with that in mind.
+
+### The simulation
+
+The actual simulation takes place entirely in decaysimulation.cpp.
+
+The DecaySimulation class (definition in decaysimulation.h) encapsulates the
+parameters used and the result data.
+
+The `run()` method actually performs the simulation.
+
+The DecaySimulation class also provides a method that wraps up the data in a
+form the charting component can use.
+
+The rest of the source provides the UI.
 
 ### On Web Embedding
 
