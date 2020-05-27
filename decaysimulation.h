@@ -14,7 +14,7 @@ public:
 
     void run();
 
-    QtCharts::QXYSeries *getPopulationTimeData(QObject *seriesParent = nullptr);
+    QtCharts::QXYSeries *getPopulationTimeData(QObject *seriesParent = nullptr, bool useSpline = false);
 
 protected:
     int mPopulation;

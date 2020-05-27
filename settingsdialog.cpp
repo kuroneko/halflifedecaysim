@@ -33,4 +33,12 @@ void SettingsDialog::setPopulation(int population)
     ui->populationBox->setValue(population);
 }
 
+bool SettingsDialog::getSplineCharts() const
+{
+    return ui->useSplineChartsCheckbox->checkState() == Qt::Checked;
+}
+
+void SettingsDialog::setSplineCharts(bool enabled) {
+    ui->useSplineChartsCheckbox->setCheckState(enabled?Qt::Checked:Qt::Unchecked);
+}
 

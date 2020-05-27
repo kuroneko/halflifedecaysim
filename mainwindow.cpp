@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "settingsdialog.h"
 #include "decaysimulation.h"
+#include "newrunoptions.h"
 
 using namespace QtCharts;
 
@@ -9,9 +10,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
       simulationIterations(100),
       simulationStartingPopulation(1000),
+      chartSplineLines(true),
       chart(nullptr),
       chartView(nullptr),
       chartWindow(nullptr),
+      mXAxis(nullptr),
+      mYAxis(nullptr),
       ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -34,9 +38,26 @@ void MainWindow::setupChartView()
     }
     if (!chartView) {
         chartView = new QChartView(chart, this);
-        chartView->setRenderHint(QPainter::Antialiasing);
     }
-    chart->setTitle(tr("Population vs Time"));   
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chart->setTitle(tr("Population vs Time"));
+    chart->removeAllSeries();
+
+    if (!mXAxis) {
+        mXAxis = new QValueAxis(chart);
+        chart->addAxis(mXAxis, Qt::AlignBottom);
+    }
+    mXAxis->setRange(0.0, simulationIterations);
+    mXAxis->setTickAnchor(0);
+    mXAxis->setTickCount(11);
+
+    if (!mYAxis) {
+        mYAxis = new QValueAxis(this);
+        chart->addAxis(mYAxis, Qt::AlignLeft);
+    }
+    mYAxis->setRange(0.0, simulationStartingPopulation);
+    mYAxis->setTickCount(11);
+    mYAxis->setTickAnchor(0);
 }
 
 
@@ -48,23 +69,32 @@ MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionSettings_triggered()
 {
-    auto *settings = new SettingsDialog(this);
+    SettingsDialog settings;
 
-    settings->setIterations(simulationIterations);
-    settings->setPopulation(simulationStartingPopulation);
+    settings.setIterations(simulationIterations);
+    settings.setPopulation(simulationStartingPopulation);
+    settings.setSplineCharts(chartSplineLines);
 
-    auto result = settings->exec();
+    auto result = settings.exec();
     if (result == QDialog::Accepted) {
-        simulationIterations = settings->getIterations();
-        simulationStartingPopulation = settings->getPopulation();
+        simulationIterations = settings.getIterations();
+        simulationStartingPopulation = settings.getPopulation();
+        chartSplineLines = settings.getSplineCharts();
+        // reset the chart layout.
+
+        setupChartView();
     }
 }
 
 void MainWindow::on_actionAddRun_triggered()
 {
-    DecaySimulation     decaySim(simulationStartingPopulation, simulationIterations, 0.2);
-    decaySim.run();
-    chart->addSeries(decaySim.getPopulationTimeData(chart));
-    chart->createDefaultAxes();
+    NewRunOptions runOptions;
+
+    auto result = runOptions.exec();
+    if (result == QDialog::Accepted) {
+        DecaySimulation decaySim(simulationStartingPopulation, simulationIterations, runOptions.getProbability());
+        decaySim.run();
+        chart->addSeries(decaySim.getPopulationTimeData(chart, chartSplineLines));
+    }
 }
 

@@ -21,6 +21,9 @@ public:
     int getPopulation() const;
     void setPopulation(int population);
 
+    bool getSplineCharts() const;
+    void setSplineCharts(bool enabled);
+
 
 private:
     Ui::SettingsDialog *ui;

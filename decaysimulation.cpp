@@ -40,10 +40,14 @@ void DecaySimulation::run()
     mActualIterations = iterations;
 }
 
-QXYSeries *DecaySimulation::getPopulationTimeData(QObject *seriesParent)
+QXYSeries *DecaySimulation::getPopulationTimeData(QObject *seriesParent, bool useSpline)
 {
-    auto *returnValue = new QLineSeries(seriesParent);
-
+    QLineSeries *returnValue;
+    if (useSpline) {
+        returnValue = new QSplineSeries(seriesParent);
+    } else {
+        returnValue = new QLineSeries(seriesParent);
+    }
     returnValue->setName(tr("p=%0").arg(QString::number(mDecayProbability, 'g', 10)));
     returnValue->setPointLabelsFormat(tr("i=@xPoint, p=@yPoint"));
     // insert the 0th item

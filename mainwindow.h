@@ -19,11 +19,14 @@ public:
     int simulationIterations;
     int simulationStartingPopulation;
 
+    bool chartSplineLines;
+
 protected:
     QtCharts::QChart *chart;
     QtCharts::QChartView *chartView;
     QMdiSubWindow *chartWindow;
-
+    QValueAxis *mXAxis;
+    QValueAxis *mYAxis;
     void setupChartView();
 
 private:

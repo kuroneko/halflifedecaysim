@@ -19,15 +19,18 @@ SOURCES += \
     decaysimulation.cpp \
     main.cpp \
     mainwindow.cpp \
+    newrunoptions.cpp \
     settingsdialog.cpp
 
 HEADERS += \
     decaysimulation.h \
     mainwindow.h \
+    newrunoptions.h \
     settingsdialog.h
 
 FORMS += \
     mainwindow.ui \
+    newrunoptions.ui \
     settingsdialog.ui
 
 TRANSLATIONS += \

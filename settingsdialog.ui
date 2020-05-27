@@ -7,52 +7,67 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>188</height>
+    <height>116</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Settings</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <layout class="QFormLayout" name="formLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="iterationsLabel">
-       <property name="text">
-        <string>Maximum Iterations to Run</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QSpinBox" name="iterationsBox">
-       <property name="minimum">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="populationLabel">
-       <property name="text">
-        <string>Starting Population</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QSpinBox" name="populationBox">
-       <property name="minimum">
-        <number>100</number>
-       </property>
-       <property name="maximum">
-        <number>1000000</number>
-       </property>
-       <property name="singleStep">
-        <number>100</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="iterationsLabel">
+     <property name="text">
+      <string>Maximum Iterations to Run</string>
+     </property>
+    </widget>
    </item>
-   <item>
+   <item row="0" column="1">
+    <widget class="QSpinBox" name="iterationsBox">
+     <property name="toolTip">
+      <string>Maximum number of iterations to simulate.  The simulation will stop irrespective of this setting if the population reaches 0.  Use this to limit the maximum time the simulation will run for.</string>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>500</number>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="populationLabel">
+     <property name="text">
+      <string>Starting Population</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QSpinBox" name="populationBox">
+     <property name="toolTip">
+      <string>Population at the start of the simulation.  Equivalent to the number of dice thrown in the manual experiment.</string>
+     </property>
+     <property name="minimum">
+      <number>100</number>
+     </property>
+     <property name="maximum">
+      <number>1000000</number>
+     </property>
+     <property name="singleStep">
+      <number>100</number>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QCheckBox" name="useSplineChartsCheckbox">
+     <property name="toolTip">
+      <string>Enabling this uses a smoothed result curve rather than strictly plotting the data.</string>
+     </property>
+     <property name="text">
+      <string>Smooth Result Curve</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
