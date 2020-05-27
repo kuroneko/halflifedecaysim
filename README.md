@@ -1,6 +1,6 @@
 # HalflifeDecaySim
 
-HalflifeDecaySim plots population vs iterations given a specific probability of decay.  This is determined using a trivial monte-carlo simulation.
+HalflifeDecaySim plots population vs iterations given a specific probability of decay.  This is determined using a trivial simulation using a uniform RNG distribution.
 
 The app is written using Qt 5.15.0 and can be built as a WASM target so it can run in a desktop browser window and linked from a Moodle instance.
 
@@ -18,3 +18,8 @@ These are things that were out of scope of my immediate concerns
 
 * Fine-grained access to control axes scale.
 
+## License
+
+This software uses features from Qt that are licensed under the GPL, and as such, is released under the GPL itself.
+
+Please see COPYING.md for more information.
