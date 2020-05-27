@@ -35,7 +35,7 @@ private:
     Ui::MainWindow *ui;    
 
 private slots:
-    void on_actionExit_triggered();
+    void on_actionAbout_triggered();
     void on_actionSettings_triggered();
     void on_actionAddRun_triggered();
 

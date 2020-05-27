@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    aboutdialog.cpp \
     decaysimulation.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -23,12 +24,14 @@ SOURCES += \
     settingsdialog.cpp
 
 HEADERS += \
+    aboutdialog.h \
     decaysimulation.h \
     mainwindow.h \
     newrunoptions.h \
     settingsdialog.h
 
 FORMS += \
+    aboutdialog.ui \
     mainwindow.ui \
     newrunoptions.ui \
     settingsdialog.ui

@@ -27,7 +27,7 @@
     <property name="title">
      <string>&amp;App</string>
     </property>
-    <addaction name="actionExit"/>
+    <addaction name="actionAbout"/>
    </widget>
    <widget class="QMenu" name="menu_Simulation">
     <property name="title">
@@ -54,6 +54,11 @@
   <action name="actionAddRun">
    <property name="text">
     <string>Add Run</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About...</string>
    </property>
   </action>
  </widget>

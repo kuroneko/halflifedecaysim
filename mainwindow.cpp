@@ -1,7 +1,26 @@
+/*
+ * HalflifeDecaySim: A Simple App to Model Radioactive Decay
+ * Copyright (C) 2020 Chris Collins
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "decaysimulation.h"
 #include "newrunoptions.h"
+#include "aboutdialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -54,11 +73,11 @@ void MainWindow::setupChartView()
     mYAxis->setTickAnchor(0);
 }
 
-
-void
-MainWindow::on_actionExit_triggered()
+void MainWindow::on_actionAbout_triggered()
 {
-    close();
+    auto *about = new AboutDialog(this);
+    about->setAttribute(Qt::WA_DeleteOnClose, true);
+    about->show();
 }
 
 void MainWindow::on_actionSettings_triggered()

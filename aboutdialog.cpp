@@ -15,33 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-#ifndef DECAYSIMULATION_H
-#define DECAYSIMULATION_H
 
-#include <QObject>
-#include <QVector>
-#include <QtCharts>
+#include "aboutdialog.h"
+#include "ui_aboutdialog.h"
 
-class DecaySimulation: public QObject
-{    
-    Q_OBJECT
+AboutDialog::AboutDialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::AboutDialog)
+{
+    ui->setupUi(this);
+}
 
-public:
-    DecaySimulation(int population, int maxIterations, double decayP, QObject *parent=nullptr);
-
-    void run();
-
-    QtCharts::QXYSeries *getPopulationTimeData(QObject *seriesParent = nullptr, bool useSpline = false);
-
-protected:
-    int mPopulation;
-    int mIterations;
-    double mDecayProbability;
-
-    QVector<QVector<double>>    mRawResults;
-    QVector<int>                mPopulationTime;
-    int mActualIterations;
-
-};
-
-#endif // DECAYSIMULATION_H
+AboutDialog::~AboutDialog()
+{
+    delete ui;
+}
